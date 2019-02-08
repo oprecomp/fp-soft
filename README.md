@@ -1,26 +1,28 @@
 This directory contain a small floating point library replacement used
 for transprecision experimentation. The main characteristics are :
-    * compatible with float without source modifications
-    * small api to modify precisions at run-time
-    * NOT IEEE compliant, only for research purpose
-    * Implement *, +, - for float 32 
+* compatible with float without source modifications
+* small api to modify precisions at run-time
+* NOT IEEE compliant, only for research purpose
+* Implement *, +, - for float 32 
 
-The abi is very simple :
+# The abi is very simple :
+~~~~
     float    __mulsf3(float a, float b);
     float    __addsf3(float a, float b);
     float    __subsf3(float a, float b);
     void fpSetPrecision (int mantissa_bits);
     void fpInitCount();
     int fpGetPrecision();
+~~~~
 
-How to compile
-    * "make riscv" will compile the library for RISCV platform. Adjust RVCC variable for your installation. Compilation will produce a libfp-soft.so file
-    * "make riscv-build-example" will compile for RISCV platform a matrix multiply example. 
+# How to compile
+* "make riscv" will compile the library for RISCV platform. Adjust RVCC variable for your installation. Compilation will produce a libfp-soft.so file
+* "make riscv-build-example" will compile for RISCV platform a matrix multiply example. 
 
-How to use
-    * "make riscv-run-example" will compile and execute a matrix multiplication example, using qemu-risc32 simulator
+# How to use
+* "make riscv-run-example" will compile and execute a matrix multiplication example, using qemu-risc32 simulator
 
-References:
+# References:
     
 * Floats Formats :
   FP Double : Sign bit: 1 Exponent: 11 bits  Significand precision: 52 bits 
