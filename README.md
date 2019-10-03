@@ -24,6 +24,23 @@ Use a riscv toolchain containing gcc and qemu like
 # How to compile
 * "make riscv" will compile the library for RISCV platform. Adjust RVCC variable for your installation. Compilation will produce a libfp-soft.so file
 * "make riscv-build-example" will compile for RISCV platform a matrix multiply example. 
+* "make riscv-run-example should give the following result: 
+ 96.000000 80.000000 80.000000 128.000000 
+ 112.000000 56.000000 80.000000 112.000000 
+ 64.000000 28.000000 56.000000 64.000000 
+ 80.000000 80.000000 80.000000 112.000000 
+
+ 133.273682 111.862587 131.518982 189.546661 
+ 147.577988 89.743591 116.597992 164.783981 
+ 94.794693 41.236095 74.267197 91.267288 
+ 109.496696 99.617393 110.356194 162.936279 
+
+ Prec.  :   0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19   20   21   22   23 
+ Fmul32 :   0    0   64    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0   64 
+ Fadd32 :   0    0   64    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0   64 
+ Fsub32 :   0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0 
+
+These results are the result of the multiplication of the very same matrices but with (1) 2 bits mantisa and (2) 23 bits mantissa. The last array give the number for mul / add / sub with the different precision.
 
 # How to use
 * "make riscv-run-example" will compile and execute a matrix multiplication example, using qemu-risc32 simulator
