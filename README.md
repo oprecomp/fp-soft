@@ -1,8 +1,9 @@
 This directory contain a small floating point library replacement used
 for transprecision experimentation. The main characteristics are :
-* compatible with float without source modifications
+
+* compatible with float ___without any source___ modifications
 * small api to modify precisions at run-time
-* NOT IEEE compliant, only for research purpose
+* ___NOT IEEE compliant___, only for research purpose
 * Implement *, +, - for float 32 
 
 # The abi is very simple :
