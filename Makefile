@@ -2,12 +2,11 @@ X86CC=gcc
 X86CFLAGS = -Wall -g
 X86AR =ar
 
-RVROOT = /opt/RISCV-PULP-NEWLIB/
+RVROOT = /opt/riscv/
 RVCFLAGS = -Wall -g -march=rv32i -mabi=ilp32
 RVCC=${RVROOT}/bin/riscv32-unknown-elf-gcc 
 RVAR=${RVROOT}/bin/riscv32-unknown-elf-ar
 # CC = gcc
-RVROOT = /opt/RISCV-PULP-NEWLIB/
 
 FILES=fp-mul32.o fp-add32.o fp-sub32.o fp-precision.o fp-print.o
 FILESTEST = fp-main-test.o 
