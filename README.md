@@ -18,9 +18,10 @@ for transprecision experimentation. The main characteristics are :
 # How to install
 Use a riscv toolchain containing gcc and qemu like
 * the RISCV gnu toolchain https://github.com/riscv/riscv-gnu-toolchain , using :
- * git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
- * ./configure --prefix=/opt/riscv --with-arch=rv32i --with-abi=ilp32; make
- * cd qemu; ./configure --prefix=/opt/riscv ; make
+  * git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
+  * ./configure --prefix=/opt/riscv --with-arch=rv32i --with-abi=ilp32; make
+  * cd qemu; ./configure --prefix=/opt/riscv ; make
+
 # How to compile
 * "make riscv" will compile the library for RISCV platform. Adjust RVCC variable for your installation. Compilation will produce a libfp-soft.so file
 * "make riscv-build-example" will compile for RISCV platform a matrix multiply example. 
@@ -49,11 +50,11 @@ These results are the result of the multiplication of the very same matrices but
 # References:
     
 * Floats Formats :
- *  FP Double : Sign bit: 1 Exponent: 11 bits  Significand precision: 52 bits 
- *  FP Float  : Sign bit: 1 Exponent:  8 bits  Significand precision: 23 bits 
- *  https://en.wikipedia.org/wiki/Double-precision_floating-point_format
- *  https://en.wikipedia.org/wiki/Single-precision_floating-point_format
- *  https://en.wikipedia.org/wiki/Exponent_bias
+  *  FP Double : Sign bit: 1 Exponent: 11 bits  Significand precision: 52 bits 
+  *  FP Float  : Sign bit: 1 Exponent:  8 bits  Significand precision: 23 bits 
+  *  https://en.wikipedia.org/wiki/Double-precision_floating-point_format
+  *  https://en.wikipedia.org/wiki/Single-precision_floating-point_format
+  *  https://en.wikipedia.org/wiki/Exponent_bias
 
 * Berkeley SoftFloat is a free, high-quality software implementation  of binary floating-point that conforms to the IEEE Standard for Floating-Point Arithmetic
  * http://www.jhauser.us/arithmetic/SoftFloat.html
