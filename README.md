@@ -20,12 +20,12 @@ Use a riscv toolchain containing gcc and qemu like
 * the RISCV gnu toolchain https://github.com/riscv/riscv-gnu-toolchain , using :
   * git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
   * ./configure --prefix=/opt/riscv --with-arch=rv32i --with-abi=ilp32; make
-  * cd qemu; ./configure --prefix=/opt/riscv ; make
+  * cd qemu; ./configure --prefix=/opt/riscv --target-list=riscv32-linux-user; make
 
 # How to compile
 * "make riscv" will compile the library for RISCV platform. Adjust RVCC variable for your installation. Compilation will produce a libfp-soft.so file
-* "make riscv-build-example" will compile for RISCV platform a matrix multiply example. 
-* "make riscv-run-example should give the following result: 
+  * "make riscv-build-example" will compile for RISCV platform a matrix multiply example. 
+  * "make riscv-run-example should give the following result: 
 ``` 96.000000 80.000000 80.000000 128.000000 
  112.000000 56.000000 80.000000 112.000000 
  64.000000 28.000000 56.000000 64.000000 
@@ -42,10 +42,14 @@ Use a riscv toolchain containing gcc and qemu like
  Fsub32 :   0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0 
 ```
 
-These results are the result of the multiplication of the very same matrices but with (1) 2 bits mantisa and (2) 23 bits mantissa. The last array give the number for mul / add / sub with the different precision.
+  These results are the result of the multiplication of the very same matrices but with (1) 2 bits mantisa and (2) 23 bits mantissa. The last array give the number for mul / add / sub with the different precision.
+
+* "make x86" will compile the library & the '''fp-main-test''' main application which can 
+  * help to figure out what are the internal representation of different numbers. 
+  * It can also serve as debugging application for the library.
 
 # How to use
-* "make riscv-run-example" will compile and execute a matrix multiplication example, using qemu-risc32 simulator
+* "make riscv-run-example" will compile and execute a matrix multiplication example, using qemu-risc32 simulator (correct your shell PATH variable accordingly)
 
 # References:
     
