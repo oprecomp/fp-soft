@@ -7,7 +7,7 @@
 typedef float typeelt;
 typedef typeelt tMatrix[NLINE][NCOL];
 
-char printfFormat[] = "%08f ";
+char printfFormat[] = "%f ";
 
 void printMatrix(tMatrix a)
 {
