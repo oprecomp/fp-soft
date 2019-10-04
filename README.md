@@ -18,14 +18,14 @@ for transprecision experimentation. The main characteristics are :
 # How to install
 Use a riscv toolchain containing gcc and qemu like
 * the RISCV gnu toolchain https://github.com/riscv/riscv-gnu-toolchain , using :
-** git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
-** ./configure --prefix=/opt/riscv --with-arch=rv32i --with-abi=ilp32; make
-** cd qemu; ./configure --prefix=/opt/riscv ; make
+ * git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
+ * ./configure --prefix=/opt/riscv --with-arch=rv32i --with-abi=ilp32; make
+ * cd qemu; ./configure --prefix=/opt/riscv ; make
 # How to compile
 * "make riscv" will compile the library for RISCV platform. Adjust RVCC variable for your installation. Compilation will produce a libfp-soft.so file
 * "make riscv-build-example" will compile for RISCV platform a matrix multiply example. 
 * "make riscv-run-example should give the following result: 
- 96.000000 80.000000 80.000000 128.000000 
+``` 96.000000 80.000000 80.000000 128.000000 
  112.000000 56.000000 80.000000 112.000000 
  64.000000 28.000000 56.000000 64.000000 
  80.000000 80.000000 80.000000 112.000000 
@@ -39,6 +39,7 @@ Use a riscv toolchain containing gcc and qemu like
  Fmul32 :   0    0   64    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0   64 
  Fadd32 :   0    0   64    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0   64 
  Fsub32 :   0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0    0 
+```
 
 These results are the result of the multiplication of the very same matrices but with (1) 2 bits mantisa and (2) 23 bits mantissa. The last array give the number for mul / add / sub with the different precision.
 
@@ -48,19 +49,17 @@ These results are the result of the multiplication of the very same matrices but
 # References:
     
 * Floats Formats :
-**  FP Double : Sign bit: 1 Exponent: 11 bits  Significand precision: 52 bits 
-**  FP Float  : Sign bit: 1 Exponent:  8 bits  Significand precision: 23 bits 
-**  https://en.wikipedia.org/wiki/Double-precision_floating-point_format
-**  https://en.wikipedia.org/wiki/Single-precision_floating-point_format
-**  https://en.wikipedia.org/wiki/Exponent_bias
+ *  FP Double : Sign bit: 1 Exponent: 11 bits  Significand precision: 52 bits 
+ *  FP Float  : Sign bit: 1 Exponent:  8 bits  Significand precision: 23 bits 
+ *  https://en.wikipedia.org/wiki/Double-precision_floating-point_format
+ *  https://en.wikipedia.org/wiki/Single-precision_floating-point_format
+ *  https://en.wikipedia.org/wiki/Exponent_bias
 
-* Berkeley SoftFloat is a free, high-quality software implementation
-  of binary floating-point that conforms to the IEEE Standard for
-  Floating-Point Arithmetic
-  http://www.jhauser.us/arithmetic/SoftFloat.html
+* Berkeley SoftFloat is a free, high-quality software implementation  of binary floating-point that conforms to the IEEE Standard for Floating-Point Arithmetic
+ * http://www.jhauser.us/arithmetic/SoftFloat.html
 
 * Used in RISCV boot : https://github.com/riscv/riscv-pk
 
 * GCC gcc/libgcc/fp-bit.[ch] fpmul_parts function
 
-* LLVM implementation ?
+* There is certainly an LLVM implementation somewhere, let me know where ?
